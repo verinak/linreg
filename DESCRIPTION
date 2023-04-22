@@ -1,0 +1,26 @@
+Package: linreg
+Title: Fit Data to Simple Linear Regression Model
+Version: 0.0.0.9000
+Authors@R: c(
+      person(first = "Ola", last = "Mamdouh", comment = c(ID = 20221365645)),
+      person(first = "Verina", last = "Michel", comment = c(ID = 20221440977)),
+      person(first = "Marly", last = "Magdy", comment = c(ID = 20221440960)),
+      person(first = "Maria", last = "Anwar", comment = c(ID = 20221380729)),
+      person(first = "Mariem", last = "Nasr", comment = c(ID = 20221377872)),
+      person(first = "Mirna", last = "Tarek", comment = c(ID = 20221440817))
+    )
+Description: Regression Analysis Project Phase I - Simple Linear Regression
+Imports:
+  readxl, 
+  data.table,
+  jsonlite,
+  foreign,
+  haven
+License: use_mit_license()
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+NeedsCompilation: no
+Packaged: 2023-04-16 15:30:11 UTC; olama
+Author: First Last [aut, cre] (YOUR-ORCID-ID)
+Maintainer: First Last <first.last@example.com>
