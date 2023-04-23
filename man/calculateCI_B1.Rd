@@ -4,7 +4,15 @@
 \alias{calculateCI_B1}
 \title{calculateCI_B1}
 \usage{
-calculateCI_B1(data, known, sigma, alpha, B1 = NULL, MSE = NULL, SXX = NULL)
+calculateCI_B1(
+  data,
+  known = FALSE,
+  sigma,
+  alpha,
+  B1 = NULL,
+  MSE = NULL,
+  SXX = NULL
+)
 }
 \arguments{
 \item{data}{a dataset of x and y}

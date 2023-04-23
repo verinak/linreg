@@ -9,11 +9,11 @@ calculateyo(df, xo, Bo = NULL, B1 = NULL)
 \arguments{
 \item{df}{a dataset of x and y}
 
+\item{xo}{value of x0 to calculate the mean response at}
+
 \item{Bo}{(optional) value of Bo if known. Will be calculated from the data if unknown.}
 
 \item{B1}{(optional) value of B1 if known. Will be calculated from the data if unknown.}
-
-\item{x0}{value of x0 to calculate the mean response at}
 }
 \value{
 y0

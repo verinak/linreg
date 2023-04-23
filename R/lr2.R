@@ -50,11 +50,13 @@ read_data <- function(loc){
     stop('Invalid File Format')
   }
   
-  # convert data into dataframe and return it
+  # convert data into dataframe, fix numeric types, and return it
   data = as.data.frame(data)
   return(data)
   
 }
+
+
 
 #' Calculate total sum for x
 #'
@@ -473,7 +475,7 @@ calculateANOVATABLE<-function(df,B1=NULL,SXX=NULL,SXY=NULL,SYY=NULL){
 #' @export
 #'
 #' @examples 
-calculateCI_B0=function(data,known,sigma= NULL,alpha, B0=NULL,MSE=NULL,SXX=NULL){
+calculateCI_B0=function(data,known=FALSE,sigma= NULL,alpha, B0=NULL,MSE=NULL,SXX=NULL){
   n=length_df(data)
   if(is.null(B0)){
     B0=calculateB0(data)
@@ -520,7 +522,7 @@ calculateCI_B0=function(data,known,sigma= NULL,alpha, B0=NULL,MSE=NULL,SXX=NULL)
 #' @export
 #'
 #' @examples 
-calculateCI_B1=function(data,known,sigma ,alpha, B1=NULL,MSE=NULL,SXX=NULL){
+calculateCI_B1=function(data,known=FALSE,sigma ,alpha, B1=NULL,MSE=NULL,SXX=NULL){
   n=length_df(data)
   if(is.null(B1)){
     B1=calculateB1(data)
@@ -579,7 +581,7 @@ calculateCI_SigmaSquare <- function(df, alpha, MSE = NULL) {
 #' Calculating y_predicted
 #'
 #' @param df a dataset of x and y
-#' @param x0  value of x0 to calculate the mean response at
+#' @param xo  value of x0 to calculate the mean response at
 #' @param Bo (optional) value of Bo if known. Will be calculated from the data if unknown.
 #' @param B1 (optional) value of B1 if known. Will be calculated from the data if unknown.
 #'
@@ -605,7 +607,7 @@ calculateyo <- function(df, xo,Bo=NULL,B1=NULL){
 #' @param df a dataset of x and y
 #' @param a  significance level (alpha)
 #' @param xo  value of xo to calculate the mean response at
-#' @param knwon boolean to indicate if sigma squared is known or not
+#' @param known boolean to indicate if sigma squared is known or not
 #' @param sigma2  value of sigma squared, if known
 #' @param Bo (optional) value of Bo if known. Will be calculated from the data if unknown.
 #' @param B1 (optional) value of B1 if known. Will be calculated from the data if unknown.
@@ -616,7 +618,7 @@ calculateyo <- function(df, xo,Bo=NULL,B1=NULL){
 #' @export
 #'
 #' @examples
-calculateCI_mean_response <- function(df, a, xo, known, sigma2 = NULL,Bo=NULL,B1=NULL,MSE=NULL,Sxx=NULL){
+calculateCI_mean_response <- function(df, a, xo, known=FALSE , sigma2 = NULL,Bo=NULL,B1=NULL,MSE=NULL,Sxx=NULL){
   
   yo = calculateyo(df,xo,Bo,B1)
   n = length_df(df)
@@ -648,7 +650,7 @@ calculateCI_mean_response <- function(df, a, xo, known, sigma2 = NULL,Bo=NULL,B1
 #' @param df a dataset of x and y
 #' @param a  significance level (alpha)
 #' @param xo  value of xo to calculate the mean response at
-#' @param knwon boolean to indicate if sigma squared is known or not
+#' @param known boolean to indicate if sigma squared is known or not
 #' @param sigma2  value of sigma squared, if known
 #' @param Bo (optional) value of Bo if known. Will be calculated from the data if unknown.
 #' @param B1 (optional) value of B1 if known. Will be calculated from the data if unknown.
@@ -659,7 +661,7 @@ calculateCI_mean_response <- function(df, a, xo, known, sigma2 = NULL,Bo=NULL,B1
 #' @export
 #'
 #' @examples
-calculateCI_new_observation <- function(df, a, xo, known, sigma2 = NULL,Bo=NULL,B1=NULL,MSE=NULL,Sxx=NULL){
+calculateCI_new_observation <- function(df, a, xo, known = FALSE, sigma2 = NULL,Bo=NULL,B1=NULL,MSE=NULL,Sxx=NULL){
   
   yo = calculateyo(df,xo,Bo,B1)
   n = length_df(df)

@@ -6,7 +6,7 @@
 \usage{
 calculateCI_B0(
   data,
-  known,
+  known = FALSE,
   sigma = NULL,
   alpha,
   B0 = NULL,

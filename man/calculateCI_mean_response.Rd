@@ -8,7 +8,7 @@ calculateCI_mean_response(
   df,
   a,
   xo,
-  known,
+  known = FALSE,
   sigma2 = NULL,
   Bo = NULL,
   B1 = NULL,
@@ -23,6 +23,8 @@ calculateCI_mean_response(
 
 \item{xo}{value of xo to calculate the mean response at}
 
+\item{known}{boolean to indicate if sigma squared is known or not}
+
 \item{sigma2}{value of sigma squared, if known}
 
 \item{Bo}{(optional) value of Bo if known. Will be calculated from the data if unknown.}
@@ -32,8 +34,6 @@ calculateCI_mean_response(
 \item{MSE}{(optional) value of MSE if known. Will be calculated from the data if unknown.}
 
 \item{Sxx}{(optional) value of Sxx if known. Will be calculated from the data if unknown.}
-
-\item{knwon}{boolean to indicate if sigma squared is known or not}
 }
 \value{
 confidence interval of mean response
