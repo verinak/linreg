@@ -52,10 +52,47 @@ read_data <- function(loc){
   
   # convert data into dataframe, fix numeric types, and return it
   data = as.data.frame(data)
+  data = fix_numeric(data)
   return(data)
   
 }
 
+
+#' Make sure all columns containing numbers are numeric
+#' @description Fix numeric columns marked as non-numeric while reading data
+#' @param data dataframe containing data read from the file
+#'
+#' @return dataframe after marking numeric columns correctly
+#' @export
+#' 
+#' @examples
+fix_numeric <- function(data){
+  
+  for(col in names(data)) {
+    
+    # if col is numeric, skip it
+    if(is.numeric(data[[col]])){
+      next
+    }
+    
+    
+    # get index of first non-NA element
+    idx = min(which(!is.na(data[[col]])))
+    
+    
+    # if the non-NA element can't be transformed into numeric, continue
+    # if it can be transformed, transform whole column into numeric
+    if(is.na(as.numeric(data[[col]][idx]))){
+      next
+    }
+    else{
+      data[[col]] <- as.numeric(data[[col]])
+    }
+  }
+  
+  return(data)
+  
+}
 
 
 #' Calculate total sum for x
