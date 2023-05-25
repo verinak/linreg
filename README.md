@@ -1,7 +1,7 @@
 # linreg
 Simple Linear Regression In R - Regression Analysis Project Phase I
 
-## Constributers
+## Contributers
 Ola Mamdouh\
 Verina Michel\
 Marly Magdy\
